@@ -228,24 +228,22 @@ function generateAuthors(){
   /* find all articles */
   
   const articles = document.querySelectorAll(optArticleSelector);
-  const authorsList = document.querySelector(optArticleAuthorSelector);
   console.log('article', articles);
 
   /* START LOOP: for every article: */
 
-  
   for (let article of articles){
 
-    const authorsWrapper = article.querySelector(optArticleAuthorSelector);
+    const authorsList = article.querySelector(optArticleAuthorSelector);
     console.log('authorList', authorsList);
 
     const articleAuthor = article.getAttribute('data-author');
     console.log('author', articleAuthor);
     
-    const authorHTML = '<li><a href="#author-' +  articleAuthor + '"></a></li>';
+    const authorHTML = '<li><a href="#author-' + articleAuthor + '"><span>' + articleAuthor + '</span></a></li>';
     console.log('authorHTML', authorHTML);
 
-    authorsWrapper.innerHTML = authorHTML;
+    authorsList.innerHTML = authorHTML;
     console.log('autorList', authorsList); 
   }
 
