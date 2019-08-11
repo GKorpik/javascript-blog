@@ -118,3 +118,35 @@ body {
     margin: 0 10px 0 0;
   }
 }
+
+.list tags {
+  display: inline;
+}
+.tags {
+  text-align: center;
+}
+
+.tags li {
+  display: inline-block;
+  margin: auto 4px;
+}
+
+.tag-size-1 {
+  font-size: 10px;
+}
+
+.tag-size-2 {
+  font-size: 16px;
+}
+
+.tag-size-3 {
+  font-size: 24px;
+}
+
+.tag-size-4 {
+  font-size: 26px;
+}
+
+.tag-size-5 {
+  font-size: 30px;
+}
