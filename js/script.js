@@ -50,7 +50,8 @@ const optArticleSelector = '.post',
       optArticleAuthorSelector = '.post-author',
       optTagsListSelector = '.tags.list',
       optCloudClassCount = 5,
-      optCloudClassPrefix = 'tag-size-';
+      optCloudClassPrefix = 'tag-size-',
+      optAuthorsListSelector = '.authors.list'
 
 
 function generateTitleLinks(customSelector = ''){
@@ -255,7 +256,7 @@ function tagClickHandler(event){
   /* END LOOP: for each active tag link */
   }
   /* find all tag links with "href" attribute equal to the "href" constant */
-  const activeTagsHref = document.querySelectorAll('a[href="' + href + '"]');
+  const activeTagsHref = document.querySelectorAll('a[href^="' + href + '"]');
   /* START LOOP: for each found tag link */
   for(let foundTag of activeTagsHref){
     /* add class active */
@@ -264,7 +265,7 @@ function tagClickHandler(event){
   /* END LOOP: for each found tag link */
   }
   /* execute function "generateTitleLinks" with article selector as argument */
-  generateTitleLinks('[data-tags="' + tag + '"]');
+  generateTitleLinks('[data-tags~="' + tag + '"]');
 }
 
 
@@ -291,6 +292,7 @@ addClickListenersToTags();
 
 function generateAuthors(){
   
+  
   /* find all articles */
   
   const articles = document.querySelectorAll(optArticleSelector);
@@ -299,7 +301,9 @@ function generateAuthors(){
   /* START LOOP: for every article: */
 
   for (let article of articles){
-
+    
+    let allAuthors = [];
+    
     const authorsList = article.querySelector(optArticleAuthorSelector);
     console.log('authorList', authorsList);
 
@@ -309,8 +313,24 @@ function generateAuthors(){
     const authorHTML = '<li><a href="#author-' + articleAuthor + '"><span>' + articleAuthor + '</span></a></li>';
     console.log('authorHTML', authorHTML);
 
+
+    if(allAuthors.indexOf(authorHTML) == -1){
+        /* [NEW] add generated code to allTags array */
+      allAuthors.push(authorHTML);
+    }
+ 
     authorsList.innerHTML = authorHTML;
     console.log('autorList', authorsList); 
+
+    const authorsLists = document.querySelector('.authors');
+
+    authorsLists.innerHTML = allAuthors.join(' ');
+    //let allAuthorsHTML = '';
+
+    //for(let author in allAuthors){
+      //allAuthorsHTML += author + ' (' + allAuthors[author] + ') ';
+
+   // }
   }
 
 }
