@@ -114,14 +114,21 @@ body {
 
 .post-tags {
   display: flex;
+  padding: 10px;
   p {
     margin: 0 10px 0 0;
+  }
+  
+  li {
+    padding: 10px;
+    margin: 10px;
   }
 }
 
 
 .tags {
   text-align: center;
+  padding: 5px;
 }
 
 .tags li {
