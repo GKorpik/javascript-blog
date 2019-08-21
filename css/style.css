@@ -44,7 +44,7 @@ body { background: #fff; font-family: "Source Sans Pro", sans-serif; color: #444
 
 .post-tags p { margin: 0 10px 0 0; }
 
-.post-tags li { padding: 10px; margin: 10px; }
+.post-tags li { padding: 2px; margin: 2px; }
 
 .tags { text-align: center; padding: 5px; }
 
